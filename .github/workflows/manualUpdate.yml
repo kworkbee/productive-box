@@ -1,0 +1,15 @@
+name: Manually update gist
+on:
+  repository_dispatch:
+    types: [build-event]
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Manually update gist
+        uses: maxam2017/productive-box@master
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: fd12d0a4ab3f52cfd501da745911c349
+          TIMEZONE: Asia/Seoul
